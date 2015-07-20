@@ -1,0 +1,8 @@
+# Send micro report
+EVENT=report_uReport analyzer=<%= @analyzer %>
+        /usr/libexec/abrt-action-ureport
+
+# update ABRT database
+EVENT=post_report analyzer=<%= @analyzer %>
+        reporter-ureport -A -B
+        exit 0
