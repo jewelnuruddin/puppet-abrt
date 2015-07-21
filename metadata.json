@@ -1,12 +1,12 @@
 {
-  "name": "optymyzepuppet-abrt",
+  "name": "cristifalcas-abrt",
   "version": "1.3.2",
   "author": "Falcas Cristian",
-  "license": "optymyze",
+  "license": "Apache-2.0",
   "operatingsystem_support": [],
-  "project_page": "https://v-git-op-01.optymyze.net/pp_management/abrt",
+  "project_page": "https://github.com/cristifalcas/puppet-abrt/settings",
   "requirements": [],
-  "source": "git@v-git-op-01.optymyze.net:pp_management/abrt.git",
+  "source": "git@github.com:cristifalcas/puppet-abrt.git",
   "summary": "Configuring abrt (Daemon monitoring crashes)",
   "tags": [],
   "dependencies": [
