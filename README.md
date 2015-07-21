@@ -1,62 +1,79 @@
-# abrt #
+# zram
 
-This module configures [abrt](https://github.com/abrt/abrt/wiki/ABRT-Project). It was only tested with el6 and el7.
+#### Table of Contents
 
-# Quick Start #
+1. [Overview](#overview)
+2. [Module Description - What the module does and why it is useful](#module-description)
+3. [Setup - The basics of getting started with zram](#setup)
+    * [What zram affects](#what-zram-affects)
+    * [Setup requirements](#setup-requirements)
+    * [Beginning with zram](#beginning-with-zram)
+4. [Usage - Configuration options and additional functionality](#usage)
+5. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
+5. [Limitations - OS compatibility, etc.](#limitations)
+6. [Development - Guide for contributing to the module](#development)
 
-This module is split in 3 parts:
+## Overview
 
-* abrt init class that takes care of installation and configuration of abrt
-* abrt::addon::_name_ that takes care of installation and configuration of different abrt-addon-_name_
-* abrt::libreport::_name_ that takes care of installation and configuration of different libreport-plugin-_name_
+A one-maybe-two sentence summary of what the module does/what problem it solves.
+This is your 30 second elevator pitch for your module. Consider including
+OS/Puppet version it works with.
 
-All classes have the parameters set to the default values from the packages.
+## Module Description
 
-Example installation:
+If applicable, this section should have a brief description of the technology
+the module integrates with and what that integration enables. This section
+should answer the questions: "What does this module *do*?" and "Why would I use
+it?"
 
-	  class { 'abrt':
-	    openGPGCheck         => 'no',
-	    autoreportingEnabled => 'yes',
-	  }
-	  include abrt::addon::ccpp
-	  include abrt::addon::kerneloops
-	  include abrt::addon::python
-	  include abrt::addon::ruby
-	  include abrt::libreport::mailx
-	  class { 'abrt::libreport::ureport':
-	    url       => "https://${::puppetmaster}:8443/abrt",
-	    sslverify => 'no'
-	  }
+If your module has a range of functionality (installation, configuration,
+management, etc.) this is the time to mention it.
 
-The above installs abrt and disables the check for sign packages and also is enabling the default
-reporting module ([ureport](https://github.com/abrt/faf/wiki/uReport)).
+## Setup
 
-It will install the abrt addons for cpp, kerneloops, python and ruby.
+### What zram affects
 
-It will enable and configure the mail and ureport plugins. ureport is configured to be used with 
-[foreman abrt smart proxy](https://github.com/theforeman/smart_proxy_abrt) module.
+* A list of files, packages, services, or operations that the module will alter,
+  impact, or execute on the system it's installed on.
+* This is a great place to stick any warnings.
+* Can be in list or paragraph form.
 
-# Testing #
+### Setup Requirements **OPTIONAL**
 
-1. Install will-crash package
-2. Use one of the relevant programs:
+If your module requires anything extra before setting up (pluginsync enabled,
+etc.), mention it here.
 
-	* /bin/will_abort
-	* /bin/will_cpp\_segfault
-	* /bin/will_java\_segfault
-	* /bin/will_java\_throw
-	* /bin/will_java\_throw\_remote
-	* /bin/will_java\_throw\_suppressed
-	* /bin/will_oops
-	* /bin/will_python3\_raise
-	* /bin/will_python\_raise
-	* /bin/will_python\_sigsegv
-	* /bin/will_ruby\_raise
-	* /bin/will_segfault
-	* /bin/will_stackoverflow
+### Beginning with zram
 
+The very basic steps needed for a user to get the module up and running.
 
-# Contact Information #
+If your most recent release breaks compatibility or requires particular steps
+for upgrading, you may wish to include an additional section here: Upgrading
+(For an example, see http://forge.puppetlabs.com/puppetlabs/firewall).
 
- * Cristian Falcas <falcas@optymyze.com>
- * [Module Source Code](https://v-git-op-01.optymyze.net/pp_management/abrt)
+## Usage
+
+Put the classes, types, and resources for customizing, configuring, and doing
+the fancy stuff with your module here.
+
+## Reference
+
+Here, list the classes, types, providers, facts, etc contained in your module.
+This section should include all of the under-the-hood workings of your module so
+people know what the module is touching on their system but don't need to mess
+with things. (We are working on automating this section!)
+
+## Limitations
+
+This is where you list OS compatibility, version compatibility, etc.
+
+## Development
+
+Since your module is awesome, other users will want to play with it. Let them
+know what the ground rules for contributing are.
+
+## Release Notes/Contributors/Etc **Optional**
+
+If you aren't using changelog, put your release notes here (though you should
+consider using changelog). You may also add any additional sections you feel are
+necessary or important to include here. Please use the `## ` header.
