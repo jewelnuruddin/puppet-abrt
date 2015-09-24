@@ -1,0 +1,52 @@
+# Enable this if you want abrtd to auto-unpack crashdump tarballs which appear
+# in this directory (for example, uploaded via ftp, scp etc).
+# Note: you must ensure that whatever directory you specify here exists
+# and is writable for abrtd. abrtd will not create it automatically.
+#
+WatchCrashdumpArchiveDir = <%= scope['abrt::watchCrashdumpArchiveDir'] %>
+
+# Max size for crash storage [MiB] or 0 for unlimited
+#
+MaxCrashReportsSize = <%= scope['abrt::maxCrashReportsSize'] %>
+
+# Specify where you want to store coredumps and all files which are needed for
+# reporting. (default:/var/spool/abrt)
+#
+# Changing dump location could cause problems with SELinux. See man abrt_selinux(8).
+#
+DumpLocation = <%= scope['abrt::dumpLocation'] %>
+
+# If you want to automatically clean the upload directory you have to tweak the
+# selinux policy.
+#
+DeleteUploaded = <%= scope['abrt::deleteUploaded'] %>
+
+# A name of event which is run automatically after problem's detection. The
+# event should perform some fast analysis and exit with 70 if the
+# problem is known.
+#
+# In order to run this event automatically after detection, the
+# AutoreportingEnabled option must be configured to 'yes'
+#
+# Default value: report_uReport
+#
+AutoreportingEvent = <%= scope['abrt::autoreportingEvent'] %>
+
+# Enables automatic running of the event configured in AutoreportingEvent option.
+#
+AutoreportingEnabled = <%= scope['abrt::autoreportingEnabled'] %>
+
+# Enables shortened GUI reporting where the reporting is interrupted after
+# AutoreportingEvent is done.
+#
+# Default value: Yes but only if application is running in GNOME desktop
+#                session; otherwise No.
+#
+<% if scope['abrt::shortenedReporting'] then -%>ShortenedReporting = "<%= scope['abrt::shortenedReporting'] -%>"
+<% else -%># ShortenedReporting = yes
+<% end -%>
+
+# Disable this if you want to regular users to own the problem data colleted by
+# abrt.
+#
+PrivateReports = <%= scope['abrt::privateReports'] %>

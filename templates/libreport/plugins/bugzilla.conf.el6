@@ -1,0 +1,8 @@
+# Bugzilla URL
+BugzillaURL = <%= scope['abrt::libreport::bugzilla::bugzillaurl'] %>
+# yes means that ssl certificates will be checked
+SSLVerify = <%= scope['abrt::libreport::bugzilla::sslverify'] %>
+# your login has to exist, if you don have any, please create one
+Login = <%= scope['abrt::libreport::bugzilla::login'] %>
+# your password
+Password = <%= scope['abrt::libreport::bugzilla::password'] %>
