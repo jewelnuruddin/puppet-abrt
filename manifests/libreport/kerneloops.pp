@@ -1,18 +1,15 @@
 # Class: abrt::libreport::kerneloops
 #
-# installs and configures the kerneloops plugin.
+# This package contains plugin which sends kernel crash information to specified server, usually to kerneloops.org.
 #
-# Parameters:
+# Parameters: none
 #
-# Actions:
-#
-# Requires:
-#
-# Sample Usage:
-# include abrt::libreport::kerneloops
-#
-class abrt::libreport::kerneloops {
-  include ::abrt
+class abrt::libreport::kerneloops (
+  $package_ensure = $abrt::package_ensure,
+) {
+  include abrt
 
-  package { 'libreport-plugin-kerneloops': ensure => $::abrt::package_ensure, }
+  package { 'libreport-plugin-kerneloops': ensure => $package_ensure, }
+
+  Class['abrt::libreport::kerneloops'] ~> Service['abrtd']
 }

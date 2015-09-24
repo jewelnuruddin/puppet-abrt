@@ -1,32 +1,41 @@
-# Class: abrt::libreport::mailx
+# Class: abrt::libreport::bugzilla
 #
-# installs and configures the mailx plugin.
+# Plugin to report bugs into the bugzilla.
 #
 # Parameters:
-# $bugzillaurl: Bugzilla URL
 #
-# $sslverify: yes means that ssl certificates will be checked
+# $bugzillaurl::                  Bugzilla URL
 #
-# $login: your login has to exist, if you don have any, please create one
+# $sslverify::                    yes means that ssl certificates will be checked
 #
-# $password: your password
+# $login::                        your login has to exist, if you don have any, please create one
 #
-# Actions:
+# $password::                     your password
 #
-# Requires:
-#
-# Sample Usage:
-# include abrt::libreport::mailx
-#
-class abrt::libreport::bugzilla ($bugzillaurl = 'https://bugzilla.redhat.com/', $sslverify = 'yes', $login, $password,) {
-  include ::abrt
-  package { ['libreport-plugin-bugzilla', 'libreport-rhel-bugzilla']: ensure => $::abrt::package_ensure, } ->
-  file { '/etc/libreport/plugins/bugzilla.conf':
+class abrt::libreport::bugzilla (
+  $package_ensure = $abrt::package_ensure,
+  $login,
+  $password,
+  $bugzillaurl    = 'https://bugzilla.redhat.com/',
+  $sslverify      = 'yes',
+) {
+  include abrt
+
+  package { ['libreport-plugin-bugzilla']: ensure => $package_ensure, } ->
+  file { '/etc/libreport/events/report_Bugzilla.conf':
     ensure  => file,
-    content => template("${module_name}/libreport/plugins/bugzilla.conf"),
+    content => template("${module_name}/libreport/events/report_Bugzilla.conf"),
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    notify  => Service['abrtd'],
+  } ->
+  file { '/etc/libreport/plugins/bugzilla.conf':
+    ensure  => file,
+    content => template("${module_name}/libreport/plugins/bugzilla.conf.el${::operatingsystemmajrelease}"),
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0644',
   }
+
+  Class['abrt::libreport::bugzilla'] ~> Service['abrtd']
 }

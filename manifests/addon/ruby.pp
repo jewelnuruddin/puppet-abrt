@@ -2,28 +2,15 @@
 #
 # installs and configures the ruby abrt addon.
 #
-# Parameters:
+# Parameters: None
 #
-# Actions:
-#
-# Requires:
-#
-# Sample Usage:
-# include abrt::addon::ruby
-#
-class abrt::addon::ruby {
+class abrt::addon::ruby (
+  $package_ensure = $abrt::package_ensure,
+) {
   # http://fedoraproject.org/wiki/QA:Testcase_ABRT_ruby_gem
-  include ::abrt
-  $analyzer = 'Ruby'
+  include abrt
 
-  package { 'rubygem-abrt': ensure => $::abrt::package_ensure, } ->
-  file { '/etc/libreport/events.d/ruby_event.conf':
-    ensure  => file,
-    content => template("${module_name}/libreport/events.d/ruby_event.conf"),
-    owner   => 'root',
-    group   => 'root',
-    mode    => '0644',
-  }
+  package { 'rubygem-abrt': ensure => $package_ensure, }
 
   if $::operatingsystemmajrelease == 6 {
     file { '/etc/profile.d/optymyze_ruby_load_abrt.sh':
@@ -33,4 +20,6 @@ class abrt::addon::ruby {
 export RUBYOPT="-rabrt"'
     }
   }
+
+  Class['abrt::addon::ruby'] ~> Service['abrtd']
 }

@@ -1,27 +1,24 @@
 # Default parameters for abrt module
 class abrt::params {
-  $package_ensure           = 'installed'
+  $package_ensure = 'installed'
   # abrt.conf
   $watchCrashdumpArchiveDir = '/var/spool/abrt-upload'
-  $maxCrashReportsSize      = 1000
-  $dumpLocation             = '/var/spool/abrt'
-  $deleteUploaded           = 'no'
-  $autoreportingEvent       = 'report_uReport'
-  $autoreportingEnabled     = 'no'
+  $maxCrashReportsSize = 1000
+  $dumpLocation = '/var/spool/abrt'
+  $deleteUploaded = 'no'
+
+  case $::operatingsystemmajrelease {
+    6       : { $autoreportingEvent = 'submit_uReport' }
+    7       : { $autoreportingEvent = 'report_uReport' }
+    default : { $autoreportingEvent = 'report_uReport' }
+  }
+  $autoreportingEnabled = 'no'
+  $shortenedReporting = undef
+  $privateReports = 'yes'
+
   # abrt-action-save-package-data.conf
-  $openGPGCheck             = 'yes'
-  $blackList                = ['nspluginwrapper', 'valgrind', 'strace', 'mono-core']
-  $processUnpackaged        = 'no'
-  $blackListedPaths         = [
-    '/usr/share/doc/*',
-    '*/example*',
-    '/usr/bin/nspluginviewer',
-    '/usr/lib/xulrunner-*/plugin-container']
-  $report_sos               = true
-  $report_uploader          = false
-  $report_uploader_cmd      = 'scp://user:password@server.name/var/spool/abrt-upload || :'
-  $report_Bugzilla          = false
-  $report_uReport           = false
-  $report_gui               = false
-  $report_cli               = true
+  $openGPGCheck = 'yes'
+  $blackList = ['nspluginwrapper', 'valgrind', 'strace', 'mono-core']
+  $processUnpackaged = 'no'
+  $blackListedPaths = ['/usr/share/doc/*', '*/example*', '/usr/bin/nspluginviewer', '/usr/lib/xulrunner-*/plugin-container']
 }

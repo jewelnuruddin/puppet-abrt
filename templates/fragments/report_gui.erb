@@ -1,7 +1,0 @@
-# Reporting of problems
-EVENT=report_gui analyzer=<%= @analyzer %>
-        report-gtk -- "$DUMP_DIR"
-
-#open-gui event is used by abrt-gui's "Edit"->"Open problem data"
-EVENT=open_gui analyzer=<%= @analyzer %>
-        report-gtk -x -- "$DUMP_DIR"

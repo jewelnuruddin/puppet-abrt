@@ -11,17 +11,24 @@
 # Sample Usage:
 # include abrt::addon::java
 #
-class abrt::addon::java {
+class abrt::addon::java (
+  $package_ensure = $abrt::package_ensure,
+  $executable     = 'threadclass',
+  $syslog         = 'off',
+  $journald       = 'on',
+) {
   # https://github.com/jfilak/abrt-java-connector
-  include ::abrt
-  $analyzer = 'Java'
+  include abrt
 
-  package { 'abrt-java-connector': ensure => $::abrt::package_ensure, } ->
-  file { '/etc/libreport/events.d/java_event.conf':
+  # el7 only
+  package { 'abrt-java-connector': ensure => $package_ensure, } ->
+  file { '/etc/abrt/plugins/java.conf':
     ensure  => file,
-    content => template("${module_name}/libreport/events.d/java_event.conf"),
+    content => template("${module_name}/abrt/plugins/java.conf"),
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
   }
+
+  Class['abrt::addon::java'] ~> Service['abrtd']
 }

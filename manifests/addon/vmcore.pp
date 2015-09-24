@@ -3,20 +3,18 @@
 # installs, configures and starts the service for the vmcore abrt addon.
 #
 # Parameters:
-# $copyvmcore: Do you want vmcore to be copied, or moved from /var/crash to /var/spool/abrt?
-#              (default is to copy, but it may duplicate way too much data)
 #
-# Actions:
+# $copyvmcore::      Do you want vmcore to be copied, or moved from /var/crash to /var/spool/abrt?
+#                    (default is to copy, but it may duplicate way too much data)
 #
-# Requires:
-#
-# Sample Usage:
-# include abrt::addon::vmcore
-#
-class abrt::addon::vmcore ($copyvmcore = 'yes',) {
+class abrt::addon::vmcore (
+  $package_ensure  = $abrt::package_ensure,
+  $copyvmcore      = 'yes',
+  $attempthardlink = 'no',
+) {
   # http://fedoraproject.org/wiki/QA:Testcase_ABRT_vmcore
-  include ::abrt
-  $analyzer = 'vmcore'
+  include abrt
+  include abrt::addon::kerneloops
 
   if $::operatingsystemmajrelease == 6 {
     $vmcore_conf = '/etc/abrt/abrt-harvest-vmcore.conf'
@@ -24,18 +22,10 @@ class abrt::addon::vmcore ($copyvmcore = 'yes',) {
     $vmcore_conf = '/etc/abrt/plugins/vmcore.conf'
   }
 
-  package { 'abrt-addon-vmcore': ensure => $::abrt::package_ensure, } ->
+  package { 'abrt-addon-vmcore': ensure => $package_ensure, } ->
   file { $vmcore_conf:
     ensure  => file,
     content => template("${module_name}/abrt/plugins/vmcore.conf"),
-    owner   => 'root',
-    group   => 'root',
-    mode    => '0644',
-    notify  => Service['abrtd'],
-  } ->
-  file { '/etc/libreport/events.d/vmcore_event.conf':
-    ensure  => file,
-    content => template("${module_name}/libreport/events.d/vmcore_event.conf"),
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
@@ -52,7 +42,6 @@ class abrt::addon::vmcore ($copyvmcore = 'yes',) {
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    before  => Service['abrt-vmcore'],
   } ~>
   service { 'abrt-vmcore':
     ensure  => running,

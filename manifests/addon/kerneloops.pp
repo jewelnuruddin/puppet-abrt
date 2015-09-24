@@ -2,25 +2,19 @@
 #
 # installs and starts the service for the kerneloops abrt addon.
 #
-# Parameters:
+# Parameters: None
 #
-# Actions:
-#
-# Requires:
-#
-# Sample Usage:
-# include abrt::addon::kerneloops
-#
-class abrt::addon::kerneloops {
+class abrt::addon::kerneloops (
+  $package_ensure = $abrt::package_ensure,
+) {
   # http://fedoraproject.org/wiki/QA:Testcase_ABRT_kernel_addon
-  include ::abrt
-  include ::abrt::libreport::kerneloops
-  $analyzer = 'Kerneloops'
+  include abrt
+  include abrt::libreport::kerneloops
 
-  package { 'abrt-addon-kerneloops': ensure => $::abrt::package_ensure, } ->
-  file { '/etc/libreport/events.d/koops_event.conf':
+  package { 'abrt-addon-kerneloops': ensure => $package_ensure, } ->
+  file { '/etc/abrt/plugins/oops.conf':
     ensure  => file,
-    content => template("${module_name}/libreport/events.d/koops_event.conf"),
+    content => template("${module_name}/abrt/plugins/oops.conf.el${::operatingsystemmajrelease}"),
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
