@@ -14,26 +14,26 @@ It's main purpose is to ease the process of reporting an issue and finding a sol
 
 ## Usage
 
-  class { 'abrt':
-    package_ensure       => 'latest',
-    openGPGCheck         => 'no',
-    autoreportingEnabled => 'yes',
-  }
+    class { 'abrt':
+      package_ensure       => 'latest',
+      openGPGCheck         => 'no',
+      autoreportingEnabled => 'yes',
+    }
 
-  include abrt::addon::ccpp
-  include abrt::addon::kerneloops
-  include abrt::addon::python
-  include abrt::addon::ruby
-  include abrt::addon::vmcore
-  include abrt::libreport::mailx
+    include abrt::addon::ccpp
+    include abrt::addon::kerneloops
+    include abrt::addon::python
+    include abrt::addon::ruby
+    include abrt::addon::vmcore
+    include abrt::libreport::mailx
 
-  class { 'abrt::libreport::sos': enable => false, }
+    class { 'abrt::libreport::sos': enable => false, }
 
-  class { 'abrt::libreport::ureport':
-    url           => 'https://puppet.company.net:8443/abrt',
-    sslverify     => 'yes',
-    sslclientauth => 'puppet',
-  }
+    class { 'abrt::libreport::ureport':
+      url           => 'https://puppet.company.net:8443/abrt',
+      sslverify     => 'yes',
+      sslclientauth => 'puppet',
+    }
 
 ## Development
 
