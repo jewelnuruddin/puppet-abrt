@@ -1,6 +1,6 @@
 {
 	"name": "cristifalcas-abrt",
-	"version": "1.5.3",
+	"version": "1.5.4",
 	"author": "Falcas Cristian",
 	"license": "Apache-2.0",
 	"operatingsystem_support": [],
@@ -9,8 +9,10 @@
 	"source": "git@github.com:cristifalcas/puppet-abrt.git",
 	"issues_url": "https://github.com/cristifalcas/puppet-abrt/issues",
 	"summary": "Configuring abrt (Daemon monitoring crashes)",
-	"tags": [],
-	"dependencies": [{
+	"tags": [ "abrt"
+	],
+	"dependencies": [
+		{
 			"name": "puppetlabs/stdlib",
 			"version_requirement": "4.x"
 		}
