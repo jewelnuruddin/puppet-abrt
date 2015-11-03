@@ -1,6 +1,6 @@
 {
 	"name": "cristifalcas-abrt",
-	"version": "1.5.5",
+	"version": "1.6.0",
 	"author": "Falcas Cristian",
 	"license": "Apache-2.0",
 	"project_page": "https://github.com/cristifalcas/puppet-abrt",
@@ -9,7 +9,13 @@
 	"summary": "Configuring abrt (Daemon monitoring crashes)",
 	"tags": [ "abrt"
 	],
-	"operatingsystem_support": [],
+	"operatingsystem_support": [{
+			"operatingsystem": "RedHat",
+			"operatingsystemrelease": [ "6",
+				"7"
+			]
+		}
+	],
 	"requirements": [],
 	"dependencies": [{
 			"name": "puppetlabs/stdlib",
