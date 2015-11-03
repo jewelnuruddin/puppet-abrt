@@ -19,7 +19,7 @@ class abrt::libreport::bugzilla (
   $bugzillaurl    = 'https://bugzilla.redhat.com/',
   $sslverify      = 'yes',
 ) {
-  include abrt
+  include ::abrt
 
   package { ['libreport-plugin-bugzilla']: ensure => $package_ensure, } ->
   file { '/etc/libreport/events/report_Bugzilla.conf':

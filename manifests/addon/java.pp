@@ -18,7 +18,7 @@ class abrt::addon::java (
   $journald       = 'on',
 ) {
   # https://github.com/jfilak/abrt-java-connector
-  include abrt
+  include ::abrt
 
   # el7 only
   package { 'abrt-java-connector': ensure => $package_ensure, } ->

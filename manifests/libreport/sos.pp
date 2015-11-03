@@ -9,7 +9,7 @@ class abrt::libreport::sos (
   $enable = true,
 ) {
   # https://fedoraproject.org/wiki/QA:Testcase_ABRT_sosreport
-  include abrt
+  include ::abrt
 
   package { 'sos': ensure => $package_ensure, }
 

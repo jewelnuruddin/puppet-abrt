@@ -7,7 +7,7 @@
 class abrt::libreport::gui (
   $package_ensure = $abrt::package_ensure,
 ) {
-  include abrt
+  include ::abrt
 
   package { ['abrt-gui']: ensure => $package_ensure, }
 

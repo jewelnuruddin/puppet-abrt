@@ -7,7 +7,7 @@
 class abrt::libreport::kerneloops (
   $package_ensure = $abrt::package_ensure,
 ) {
-  include abrt
+  include ::abrt
 
   package { 'libreport-plugin-kerneloops': ensure => $package_ensure, }
 

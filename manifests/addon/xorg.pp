@@ -8,7 +8,7 @@ class abrt::addon::xorg (
   $package_ensure         = $abrt::package_ensure,
   $blacklistedXorgModules = 'nvidia, fglrx, vboxvideo',
 ) {
-  include abrt
+  include ::abrt
 
   # el7 only
   package { 'abrt-addon-xorg': ensure => $package_ensure, } ->

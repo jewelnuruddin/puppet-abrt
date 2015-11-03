@@ -8,7 +8,7 @@ class abrt::addon::ruby (
   $package_ensure = $abrt::package_ensure,
 ) {
   # http://fedoraproject.org/wiki/QA:Testcase_ABRT_ruby_gem
-  include abrt
+  include ::abrt
 
   package { 'rubygem-abrt': ensure => $package_ensure, }
 
@@ -17,7 +17,7 @@ class abrt::addon::ruby (
       ensure  => 'file',
       mode    => '0644',
       content => 'export RUBYLIB=$RUBYLIB:$(find /usr/lib/ruby/gems/1.8/gems/abrt*/lib | sort | head -1)
-export RUBYOPT="-rabrt"'
+export RUBYOPT="-rabrt"',
     }
   }
 

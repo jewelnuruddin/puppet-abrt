@@ -23,7 +23,7 @@ class abrt::libreport::ureport (
   $contactemail   = "root@${::fqdn}",
   $sslclientauth  = 'None',
 ) {
-  include abrt
+  include ::abrt
 
   package { ['libreport-plugin-ureport', 'satyr']: ensure => $package_ensure, } ->
   file { '/etc/libreport/plugins/ureport.conf':

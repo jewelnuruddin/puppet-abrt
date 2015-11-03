@@ -13,8 +13,8 @@ class abrt::addon::vmcore (
   $attempthardlink = 'no',
 ) {
   # http://fedoraproject.org/wiki/QA:Testcase_ABRT_vmcore
-  include abrt
-  include abrt::addon::kerneloops
+  include ::abrt
+  include ::abrt::addon::kerneloops
 
   if $::operatingsystemmajrelease == 6 {
     $vmcore_conf = '/etc/abrt/abrt-harvest-vmcore.conf'

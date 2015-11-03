@@ -11,7 +11,7 @@ class abrt::libreport::uploader (
   $package_ensure = $abrt::package_ensure,
   $report_uploadercmd,
 ) {
-  include abrt
+  include ::abrt
 
   package { 'libreport-plugin-reportuploader': ensure => $package_ensure, }
 

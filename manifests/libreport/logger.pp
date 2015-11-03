@@ -14,7 +14,7 @@ class abrt::libreport::logger (
   $append         = 'yes',
 ) {
   # https://fedoraproject.org/wiki/QA:Testcase_ABRT_Logger_plugin?rd=QA:Testcase_ABRT_Logger
-  include abrt
+  include ::abrt
 
   package { 'libreport-plugin-logger': ensure => $package_ensure, }  ->
   file { '/etc/libreport/events/report_Logger.conf':

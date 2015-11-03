@@ -19,7 +19,7 @@ class abrt::libreport::mailx (
   $emailto        = "root@${::fqdn}",
   $sendbinarydata = 'no',
 ) {
-  include abrt
+  include ::abrt
 
   package { 'libreport-plugin-mailx': ensure => $package_ensure, } ->
   file { '/etc/libreport/plugins/mailx.conf':
@@ -27,14 +27,14 @@ class abrt::libreport::mailx (
     content => template("${module_name}/libreport/plugins/mailx.conf"),
     owner   => 'root',
     group   => 'root',
-    mode    => '0644'
+    mode    => '0644',
   }->
   file { '/etc/libreport/events.d/mailx_event.conf':
     ensure  => file,
     content => template("${module_name}/libreport/events.d/mailx_event.conf.el${::operatingsystemmajrelease}"),
     owner   => 'root',
     group   => 'root',
-    mode    => '0644'
+    mode    => '0644',
   }
 
   Class['abrt::libreport::mailx'] ~> Service['abrtd']

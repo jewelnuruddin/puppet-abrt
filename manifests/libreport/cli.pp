@@ -7,7 +7,7 @@
 class abrt::libreport::cli (
   $package_ensure = $abrt::package_ensure,
 ) {
-  include abrt
+  include ::abrt
 
   package { ['abrt-tui', 'abrt-console-notification']: ensure => $package_ensure, }
 

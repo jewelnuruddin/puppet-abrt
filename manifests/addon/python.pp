@@ -13,7 +13,7 @@ class abrt::addon::python (
   $requireAbsolutePath = 'yes'
 ) {
   # http://fedoraproject.org/wiki/QA:Testcase_ABRT_python_addon
-  include abrt
+  include ::abrt
 
   package { 'abrt-addon-python': ensure => $package_ensure, } ->
   file { '/etc/abrt/plugins/python.conf':

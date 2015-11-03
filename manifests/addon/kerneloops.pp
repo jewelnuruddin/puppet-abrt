@@ -8,8 +8,8 @@ class abrt::addon::kerneloops (
   $package_ensure = $abrt::package_ensure,
 ) {
   # http://fedoraproject.org/wiki/QA:Testcase_ABRT_kernel_addon
-  include abrt
-  include abrt::libreport::kerneloops
+  include ::abrt
+  include ::abrt::libreport::kerneloops
 
   package { 'abrt-addon-kerneloops': ensure => $package_ensure, } ->
   file { '/etc/abrt/plugins/oops.conf':

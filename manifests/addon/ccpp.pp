@@ -22,7 +22,7 @@ class abrt::addon::ccpp (
   $debuginfoLocation = '/var/cache/abrt-di',
 ) {
   # http://fedoraproject.org/wiki/QA:Testcase_ABRT_CCPP_addon
-  include abrt
+  include ::abrt
 
   package { 'abrt-addon-ccpp': ensure => $package_ensure, } ->
   file { '/etc/abrt/plugins/CCpp.conf':
