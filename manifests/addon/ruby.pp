@@ -13,7 +13,7 @@ class abrt::addon::ruby (
   package { 'rubygem-abrt': ensure => $package_ensure, }
 
   if $::operatingsystemmajrelease == 6 {
-    file { '/etc/profile.d/optymyze_ruby_load_abrt.sh':
+    file { '/etc/profile.d/ruby_load_abrt.sh':
       ensure  => 'file',
       mode    => '0644',
       content => 'export RUBYLIB=$RUBYLIB:$(find /usr/lib/ruby/gems/1.8/gems/abrt*/lib | sort | head -1)

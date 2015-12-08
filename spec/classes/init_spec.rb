@@ -21,7 +21,7 @@ describe 'abrt' do
     context "on el7" do
       let :facts do
         super().merge({
-          :operatingsystemmajrelease => '7',
+          :operatingsystemmajrelease => '6',
         })
       end
       it { should contain_class('abrt') }
