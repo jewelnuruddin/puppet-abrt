@@ -1,6 +1,6 @@
 {
 	"name": "cristifalcas-abrt",
-	"version": "1.6.1",
+	"version": "1.6.2",
 	"author": "Falcas Cristian",
 	"license": "Apache-2.0",
 	"project_page": "https://github.com/cristifalcas/puppet-abrt",
