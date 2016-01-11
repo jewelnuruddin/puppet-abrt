@@ -1,6 +1,6 @@
 {
 	"name": "cristifalcas-abrt",
-	"version": "1.6.3",
+	"version": "1.7.0",
 	"author": "Falcas Cristian",
 	"license": "Apache-2.0",
 	"project_page": "https://github.com/cristifalcas/puppet-abrt",
@@ -11,8 +11,23 @@
 	],
 	"operatingsystem_support": [{
 			"operatingsystem": "RedHat",
-			"operatingsystemrelease": [ "6",
-				"7"
+			"operatingsystemrelease": [ "7"
+			]
+		},{
+			"operatingsystem": "CentOS",
+			"operatingsystemrelease": [ "7"
+			]
+		},{
+			"operatingsystem": "OracleLinux",
+			"operatingsystemrelease": [ "7"
+			]
+		},{
+			"operatingsystem": "Scientific",
+			"operatingsystemrelease": [ "7"
+			]
+		},{
+			"operatingsystem": "Fedora",
+			"operatingsystemrelease": [ "21"
 			]
 		}
 	],
