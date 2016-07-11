@@ -2,14 +2,14 @@ EVENT=notify
     # do not rely on the default config nor on the config file
     Mailx_Subject="<%= scope['abrt::libreport::mailx::subject'] %>" \
     Mailx_EmailFrom="<%= scope['abrt::libreport::mailx::emailfrom'] %>" \
-    Mailx_EmailTo="<%= scope['abrt::libreport::mailx::emailto'] %>" \
+    Mailx_EmailTo="<%= Array(scope['abrt::libreport::mailx::emailto']).join(",") %>" \
     reporter-mailx --notify-only
 
 EVENT=notify-dup
     # do not rely on the default config nor on the config file
     Mailx_Subject="<%= scope['abrt::libreport::mailx::subject'] %> again" \
     Mailx_EmailFrom="<%= scope['abrt::libreport::mailx::emailfrom'] %>" \
-    Mailx_EmailTo="<%= scope['abrt::libreport::mailx::emailto'] %>" \
+    Mailx_EmailTo="<%= Array(scope['abrt::libreport::mailx::emailto']).join(",") %>" \
     reporter-mailx --notify-only
 
 # Users should user rhtsupport plugin, so disabling others by default

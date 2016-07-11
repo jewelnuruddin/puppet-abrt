@@ -15,6 +15,7 @@ describe 'abrt' do
           :operatingsystemmajrelease => '6',
         })
       end
+      it { is_expected.to compile.with_all_deps }
       it { should contain_class('abrt') }
     end
 
@@ -24,6 +25,7 @@ describe 'abrt' do
           :operatingsystemmajrelease => '7',
         })
       end
+      it { is_expected.to compile.with_all_deps }
       it { should contain_class('abrt') }
     end
   end

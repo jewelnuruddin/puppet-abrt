@@ -20,6 +20,8 @@ class abrt::addon::ccpp (
   $savebinaryimage   = 'no',
   $verboselog        = 2,
   $debuginfoLocation = '/var/cache/abrt-di',
+  $allowedUsers      = undef,
+  $allowedGroups     = undef,
 ) {
   # http://fedoraproject.org/wiki/QA:Testcase_ABRT_CCPP_addon
   include ::abrt

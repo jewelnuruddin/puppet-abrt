@@ -55,9 +55,9 @@ class abrt (
 ) inherits ::abrt::params {
   # https://fedoraproject.org/wiki/Test_Day:2015-04-14_ABRT
   # test : kill -SIGSEGV (pid)
-  contain abrt::install
-  contain abrt::config
-  contain abrt::service
+  contain '::abrt::install'
+  contain '::abrt::config'
+  contain '::abrt::service'
 
   Class['abrt::install'] ->
   Class['abrt::config'] ~>
