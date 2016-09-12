@@ -4,13 +4,13 @@
 #
 # Parameters:
 #
-# $requireAbsolutePath::    If set to 'no', unhandled python exceptions will be caught
-#                           and saved even in scripts which are run without full path
-#                           in sys.argv[0].
+# $require_absolute_path::    If set to 'no', unhandled python exceptions will be caught
+#                             and saved even in scripts which are run without full path
+#                             in sys.argv[0].
 #
 class abrt::addon::python (
-  $package_ensure      = $abrt::package_ensure,
-  $requireAbsolutePath = 'yes'
+  $package_ensure        = $abrt::package_ensure,
+  $require_absolute_path = 'yes'
 ) {
   # http://fedoraproject.org/wiki/QA:Testcase_ABRT_python_addon
   include ::abrt

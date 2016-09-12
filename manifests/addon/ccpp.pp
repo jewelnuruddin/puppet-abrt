@@ -12,16 +12,16 @@
 #
 # $verboselog::                     Used for debugging the hook
 #
-# $debuginfoLocation::              Specify where you want to store debuginfos (default: /var/cache/abrt-di)
+# $debuginfo_location::              Specify where you want to store debuginfos (default: /var/cache/abrt-di)
 #
 class abrt::addon::ccpp (
   $package_ensure    = $abrt::package_ensure,
   $makecompatcore    = 'yes',
   $savebinaryimage   = 'no',
   $verboselog        = 2,
-  $debuginfoLocation = '/var/cache/abrt-di',
-  $allowedUsers      = undef,
-  $allowedGroups     = undef,
+  $debuginfo_location = '/var/cache/abrt-di',
+  $allowed_users      = undef,
+  $allowed_groups     = undef,
 ) {
   # http://fedoraproject.org/wiki/QA:Testcase_ABRT_CCPP_addon
   include ::abrt

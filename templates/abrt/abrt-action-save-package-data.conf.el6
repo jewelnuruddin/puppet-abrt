@@ -3,16 +3,16 @@
 # the list of public keys used to check the signature is
 # in the file gpg_keys
 #
-OpenGPGCheck = <%= scope['abrt::openGPGCheck'] %>
+OpenGPGCheck = <%= scope['abrt::open_gpg_check'] %>
 
 # Blacklisted packages
 #
-BlackList = <%= Array(scope['abrt::blackList']).join(", ") %>
+BlackList = <%= Array(scope['abrt::black_list']).join(", ") %>
 
 # Process crashes in executables which do not belong to any package?
 #
-ProcessUnpackaged = <%= scope['abrt::processUnpackaged'] %>
+ProcessUnpackaged = <%= scope['abrt::process_unpackaged'] %>
 
 # Blacklisted executable paths (shell patterns)
 #
-BlackListedPaths = <%= Array(scope['abrt::blackListedPaths']).join(", ") %>
+BlackListedPaths = <%= Array(scope['abrt::black_listed_paths']).join(", ") %>

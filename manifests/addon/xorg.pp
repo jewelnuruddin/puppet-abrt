@@ -6,7 +6,7 @@
 #
 class abrt::addon::xorg (
   $package_ensure         = $abrt::package_ensure,
-  $blacklistedXorgModules = 'nvidia, fglrx, vboxvideo',
+  $blacklisted_xorg_modules = 'nvidia, fglrx, vboxvideo',
 ) {
   include ::abrt
 
