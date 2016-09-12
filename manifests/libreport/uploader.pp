@@ -8,8 +8,8 @@
 #                                example: 'scp://user:password@server.name/var/spool/abrt-upload || :'
 #
 class abrt::libreport::uploader (
-  $package_ensure = $abrt::package_ensure,
   $report_uploadercmd,
+  $package_ensure = $abrt::package_ensure,
 ) {
   include ::abrt
 

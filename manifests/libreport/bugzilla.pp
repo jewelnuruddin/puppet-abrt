@@ -13,9 +13,9 @@
 # $password::                     your password
 #
 class abrt::libreport::bugzilla (
-  $package_ensure = $abrt::package_ensure,
   $login,
   $password,
+  $package_ensure = $abrt::package_ensure,
   $bugzillaurl    = 'https://bugzilla.redhat.com/',
   $sslverify      = 'yes',
 ) {
