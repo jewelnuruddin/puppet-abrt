@@ -42,7 +42,7 @@ AutoreportingEnabled = <%= scope['abrt::autoreporting_enabled'] %>
 # Default value: Yes but only if application is running in GNOME desktop
 #                session; otherwise No.
 #
-<% if scope['abrt::shortenedReporting'] then -%>ShortenedReporting = "<%= scope['abrt::shortened_reporting'] -%>"
+<% if scope['abrt::shortened_reporting'] then -%>ShortenedReporting = "<%= scope['abrt::shortened_reporting'] -%>"
 <% else -%># ShortenedReporting = yes
 <% end -%>
 
