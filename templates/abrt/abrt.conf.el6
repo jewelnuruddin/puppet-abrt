@@ -23,12 +23,12 @@ DeleteUploaded = <%= scope['abrt::delete_uploaded'] %>
 
 # A name of event which is run automatically after problem's detection. The
 # event should perform some fast analysis and print out THANKYOU message if the
-# problem is konwn.
+# problem is known.
 #
 # In order to run this event automatically after detection, the
 # AutoreportingEnabled option must be configured to 'yes'
 #
-# Default value: submit_uReport
+# Default value: report_uReport
 #
 AutoreportingEvent = <%= scope['abrt::autoreporting_event'] %>
 
