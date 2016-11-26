@@ -4,6 +4,10 @@
 #
 # Parameters:
 #
+# $package_ensure::                  Set to "installed", "latest" or any other allowed method for package type
+#
+# $enable:: TBD
+#
 class abrt::libreport::sos (
   $package_ensure = $abrt::package_ensure,
   $enable = true,

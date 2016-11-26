@@ -4,6 +4,8 @@
 #
 # Parameters:
 #
+# $package_ensure::                  Set to "installed", "latest" or any other allowed method for package type
+#
 # $url::                          Base URL to uReport server
 #
 # $sslverify::                    no means that ssl certificates will not be checked

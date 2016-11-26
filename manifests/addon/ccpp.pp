@@ -4,6 +4,8 @@
 #
 # Parameters:
 #
+# $package_ensure::                 Set to "installed", "latest" or any other allowed method for package type
+#
 # $makecompatcore::                 If you also want to dump file named "core"
 #                                   in crashed process' current dir, set to "yes"
 #
@@ -12,7 +14,11 @@
 #
 # $verboselog::                     Used for debugging the hook
 #
-# $debuginfo_location::              Specify where you want to store debuginfos (default: /var/cache/abrt-di)
+# $debuginfo_location::             Specify where you want to store debuginfos (default: /var/cache/abrt-di)
+#
+# $allowed_users::                  allowed_users
+#
+# $allowed_groups::                 allowed_groups
 #
 class abrt::addon::ccpp (
   $package_ensure    = $abrt::package_ensure,

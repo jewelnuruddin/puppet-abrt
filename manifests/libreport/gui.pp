@@ -4,6 +4,8 @@
 #
 # Parameters:
 #
+# $package_ensure::                  Set to "installed", "latest" or any other allowed method for package type
+#
 class abrt::libreport::gui (
   $package_ensure = $abrt::package_ensure,
 ) {

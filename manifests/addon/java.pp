@@ -4,11 +4,20 @@
 #
 # Parameters:
 #
+# $package_ensure::                  Set to "installed", "latest" or any other allowed method for package type
+#
+# $executable:: TBD
+#
+# $syslog:: TBD
+#
+# $journald:: TBD
+#
 # Actions:
 #
 # Requires:
 #
 # Sample Usage:
+#
 # include abrt::addon::java
 #
 class abrt::addon::java (

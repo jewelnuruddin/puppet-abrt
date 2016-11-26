@@ -4,13 +4,15 @@
 #
 # Parameters:
 #
-# $subject::
+# $package_ensure::                  Set to "installed", "latest" or any other allowed method for package type
 #
-# $emailfrom::
+# $subject:: TBD
 #
-# $emailto::
+# $emailfrom:: TBD
 #
-# $sendbinarydata::
+# $emailto:: TBD
+#
+# $sendbinarydata:: TBD
 #
 class abrt::libreport::mailx (
   $package_ensure = $abrt::package_ensure,

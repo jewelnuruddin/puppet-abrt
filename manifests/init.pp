@@ -36,6 +36,8 @@
 #
 # $black_list::                      Blacklisted packages
 #
+# $black_listed_paths:: TBD
+#
 # $process_unpackaged::              Process crashes in executables which do not belong to any package?
 #
 class abrt (

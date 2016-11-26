@@ -4,8 +4,12 @@
 #
 # Parameters:
 #
+# $package_ensure::  Set to "installed", "latest" or any other allowed method for package type
+#
 # $copyvmcore::      Do you want vmcore to be copied, or moved from /var/crash to /var/spool/abrt?
 #                    (default is to copy, but it may duplicate way too much data)
+#
+# $attempthardlink:: TBD
 #
 class abrt::addon::vmcore (
   $package_ensure  = $abrt::package_ensure,
@@ -16,7 +20,7 @@ class abrt::addon::vmcore (
   include ::abrt
   include ::abrt::addon::kerneloops
 
-  if $::operatingsystemmajrelease == 6 {
+  if $::operatingsystemmajrelease == '6' {
     $vmcore_conf = '/etc/abrt/abrt-harvest-vmcore.conf'
   } else {
     $vmcore_conf = '/etc/abrt/plugins/vmcore.conf'

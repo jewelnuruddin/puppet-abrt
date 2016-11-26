@@ -4,6 +4,8 @@
 #
 # Parameters:
 #
+# $package_ensure::                  Set to "installed", "latest" or any other allowed method for package type
+#
 # $bugzillaurl::                  Bugzilla URL
 #
 # $sslverify::                    yes means that ssl certificates will be checked

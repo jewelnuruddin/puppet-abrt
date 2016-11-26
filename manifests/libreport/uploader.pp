@@ -4,7 +4,9 @@
 #
 # Parameters:
 #
-# $report_uploader_cmd::         command to be used to upload reports
+# $package_ensure::              Set to "installed", "latest" or any other allowed method for package type
+#
+# $report_uploadercmd::          Command to be used to upload reports
 #                                example: 'scp://user:password@server.name/var/spool/abrt-upload || :'
 #
 class abrt::libreport::uploader (

@@ -4,6 +4,8 @@
 #
 # Parameters:
 #
+# $package_ensure::                  Set to "installed", "latest" or any other allowed method for package type
+#
 # $require_absolute_path::    If set to 'no', unhandled python exceptions will be caught
 #                             and saved even in scripts which are run without full path
 #                             in sys.argv[0].

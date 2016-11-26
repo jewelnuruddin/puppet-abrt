@@ -4,6 +4,10 @@
 #
 # Parameters: None
 #
+# $package_ensure::                  Set to "installed", "latest" or any other allowed method for package type
+#
+# $blacklisted_xorg_modules:: TBD
+#
 class abrt::addon::xorg (
   $package_ensure         = $abrt::package_ensure,
   $blacklisted_xorg_modules = 'nvidia, fglrx, vboxvideo',

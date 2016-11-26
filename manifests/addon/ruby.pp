@@ -2,7 +2,9 @@
 #
 # installs and configures the ruby abrt addon.
 #
-# Parameters: None
+# Parameters:
+#
+# $package_ensure::                  Set to "installed", "latest" or any other allowed method for package type
 #
 class abrt::addon::ruby (
   $package_ensure = $abrt::package_ensure,
@@ -12,7 +14,7 @@ class abrt::addon::ruby (
 
   package { 'rubygem-abrt': ensure => $package_ensure, }
 
-  if $::operatingsystemmajrelease == 6 {
+  if $::operatingsystemmajrelease == '6' {
     file { '/etc/profile.d/ruby_load_abrt.sh':
       ensure  => 'file',
       mode    => '0644',

@@ -2,7 +2,9 @@
 #
 # installs and starts the service for the kerneloops abrt addon.
 #
-# Parameters: None
+# Parameters:
+#
+# $package_ensure::                  Set to "installed", "latest" or any other allowed method for package type
 #
 class abrt::addon::kerneloops (
   $package_ensure = $abrt::package_ensure,

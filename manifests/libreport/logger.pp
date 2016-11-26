@@ -4,6 +4,8 @@
 #
 # Parameters:
 #
+# $package_ensure::                  Set to "installed", "latest" or any other allowed method for package type
+#
 # $log_file::                   Path to file where to write reports
 #
 # $append::                     Append reports
