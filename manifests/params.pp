@@ -8,8 +8,8 @@ class abrt::params {
   $delete_uploaded = 'no'
 
   case $::operatingsystemmajrelease {
-    6       : { $autoreporting_event = 'submit_uReport' }
-    7       : { $autoreporting_event = 'report_uReport' }
+    '6'       : { $autoreporting_event = 'submit_uReport' }
+    '7'       : { $autoreporting_event = 'report_uReport' }
     default : { $autoreporting_event = 'report_uReport' }
   }
   $autoreporting_enabled = 'no'
