@@ -21,13 +21,15 @@
 # $allowed_groups::                 allowed_groups
 #
 class abrt::addon::ccpp (
-  $package_ensure    = $abrt::package_ensure,
-  $makecompatcore    = 'yes',
-  $savebinaryimage   = 'no',
-  $verboselog        = 2,
-  $debuginfo_location = '/var/cache/abrt-di',
-  $allowed_users      = undef,
-  $allowed_groups     = undef,
+  $package_ensure      = $abrt::package_ensure,
+  $createcorebacktrace = 'no',
+  $savefullcore        = 'yes',
+  $makecompatcore      = 'yes',
+  $savebinaryimage     = 'no',
+  $verboselog          = 2,
+  $debuginfo_location  = '/var/cache/abrt-di',
+  $allowed_users       = undef,
+  $allowed_groups      = undef,
 ) {
   # http://fedoraproject.org/wiki/QA:Testcase_ABRT_CCPP_addon
   include ::abrt

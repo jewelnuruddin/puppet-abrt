@@ -42,8 +42,10 @@ AutoreportingEnabled = <%= scope['abrt::autoreporting_enabled'] %>
 # Default value: Yes but only if application is running in GNOME desktop
 #                session; otherwise No.
 #
-<% if scope['abrt::shortened_reporting'] then -%>ShortenedReporting = "<%= scope['abrt::shortened_reporting'] -%>"
-<% else -%># ShortenedReporting = yes
+<% unless [nil, :undefined, :undef, ''].include?(scope.lookupvar('abrt::shortened_reporting')) -%>
+ShortenedReporting = "<%= scope['abrt::shortened_reporting'] -%>"
+<% else -%>
+# ShortenedReporting = yes
 <% end -%>
 
 # Disable this if you want to regular users to own the problem data colleted by
