@@ -1,11 +1,11 @@
 {
-	"name": "cristifalcas-abrt",
+	"name": "jewelnuruddin-abrt",
 	"version": "2.2.0",
-	"author": "Falcas Cristian",
+	"author": "Jewel Mohammad Nuruddin",
 	"license": "Apache-2.0",
-	"project_page": "https://github.com/cristifalcas/puppet-abrt",
-	"source": "git@github.com:cristifalcas/puppet-abrt.git",
-	"issues_url": "https://github.com/cristifalcas/puppet-abrt/issues",
+	"project_page": "https://github.com/jewelnuruddin/puppet-abrt",
+	"source": "git@github.com:jewelnuruddin/puppet-abrt.git",
+	"issues_url": "https://github.com/jewelnuruddin/puppet-abrt/issues",
 	"summary": "Configuring abrt (Daemon monitoring crashes)",
 	"tags": [ "abrt"
 	],
