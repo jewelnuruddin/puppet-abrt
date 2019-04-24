@@ -1,5 +1,5 @@
 # abrt
-[![Build Status](https://travis-ci.org/cristifalcas/puppet-abrt.png?branch=master)](https://travis-ci.org/cristifalcas/puppet-abrt)
+[![Build Status](https://travis-ci.org/jewelnuruddin/puppet-abrt.png?branch=master)](https://travis-ci.org/jewelnuruddin/puppet-abrt)
 
 #### Table of Contents
 
