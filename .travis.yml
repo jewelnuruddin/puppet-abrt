@@ -1,7 +1,7 @@
 ---
-lnguage: ruby
-bundler_args: --without system_tests
+language: ruby
 script: "bundle exec rake validate && bundle exec rake lint && STRICT_VARIABLES=no bundle exec rake spec SPEC_OPTS='--format documentation'"
+bundler_args: --without system_tests
 matrix:
   fast_finish: true
   include:
