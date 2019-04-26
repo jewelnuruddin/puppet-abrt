@@ -6,13 +6,9 @@ matrix:
   fast_finish: true
   include:
   - rvm: 2.4.1
-    env: PUPPET_GEM_VERSION="~> 4.6"
+    env: PUPPET_GEM_VERSION="~> 3.0"
   - rvm: 2.4.1
-    env: PUPPET_GEM_VERSION="~> 4.10"
-  - rvm: 2.4.1
-    env: PUPPET_GEM_VERSION="~> 5.0"
-  - rvm: 2.4.3
-    env: PUPPET_GEM_VERSION="~> 5.4"
+    env: PUPPET_GEM_VERSION="~> 3.6.0"
 branches:
   only:
     - master
