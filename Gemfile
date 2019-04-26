@@ -7,7 +7,7 @@ gem 'rspec', '~> 3.0'
 gem 'rspec-puppet', '~> 2.3'
 gem 'rspec-puppet-facts', '>= 1.7'
 gem 'puppetlabs_spec_helper', '~> 2.7.0'
-gem 'puppet-lint'
+gem 'puppet-lint', '~> 2.0'
 gem 'puppet-lint-absolute_classname-check'
 gem 'puppet-lint-absolute_template_path'
 gem 'puppet-lint-appends-check'
@@ -28,7 +28,7 @@ gem 'puppet-lint-variable_contains_upcase'
 gem 'puppet-lint-version_comparison-check'
 gem 'simplecov'
 gem 'puppet-blacksmith', '>= 3.1.0', {"groups"=>["development"]}
-gem 'json', '~> 1.0', {"platforms"=>["ruby_19"], "groups"=>["test"]}
+gem 'json', '>= 1.0', {"platforms"=>["ruby_19"], "groups"=>["test"]}
 gem 'json_pure', '~> 1.0', {"platforms"=>["ruby_19"], "groups"=>["test"]}
 gem 'metadata-json-lint'
 gem 'webmock', '< 2.0'
