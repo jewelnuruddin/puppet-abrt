@@ -34,4 +34,5 @@ gem 'metadata-json-lint'
 gem 'webmock', '< 2.0'
 gem 'addressable', '< 2.4', {"platforms"=>["ruby_18"]}
 gem 'oauth'
+gem 'mocha'
 gem 'parallel_tests', {"platforms"=>["ruby_20", "ruby_21"]}

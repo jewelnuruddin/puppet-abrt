@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'mocha/minitest'
+
 describe 'abrt' do
   on_supported_os.each do |os, facts|
     context "with defaults on #{os}" do
