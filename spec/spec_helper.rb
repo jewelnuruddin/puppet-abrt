@@ -4,7 +4,7 @@ require 'rspec-puppet-facts'
 require 'mocha/api'
 require 'mocha/minitest'
 require 'mocha/test_unit'
-require 'minitest/unit'
+#require 'minitest/unit'
 require 'test/unit'
 include RspecPuppetFacts
 
