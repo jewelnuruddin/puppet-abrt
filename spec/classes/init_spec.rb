@@ -11,9 +11,8 @@ describe 'abrt' do
       :operatingsystem => 'CentOS'
       :architecture => 'x86_64',
     } }
+   end
 end
-
-
 
 #describe 'abrt' do
 #  on_supported_os.each do |os, facts|
