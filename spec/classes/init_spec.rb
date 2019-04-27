@@ -3,8 +3,14 @@ require 'spec_helper'
 describe 'abrt' do
   let(:title) { 'abrt' }
   let(:node) { 'localhost' }
-  it { is_expected.to compile }
-  it { is_expected.to compile.with_all_deps }
+#  it { is_expected.to compile }
+#  it { is_expected.to compile.with_all_deps }
+  context 'RedHat' do
+    let(:facts) { {
+      :osfamily => 'RedHat',
+      :operatingsystem => 'CentOS'
+      :architecture => 'x86_64',
+    } }
 end
 
 
