@@ -8,8 +8,8 @@ describe 'abrt' do
   context 'RedHat' do
     let(:facts) { {
       :osfamily => 'RedHat',
-      :operatingsystem => 'CentOS'
-      :architecture => 'x86_64',
+      :operatingsystem => 'CentOS',
+      :architecture => 'x86_64'
     } }
    end
 end
