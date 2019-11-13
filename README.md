@@ -5,7 +5,8 @@
 
 1. [Overview](#overview)
 2. [Usage - Configuration options and additional functionality](#usage)
-3. [Development - Guide for contributing to the module](#development)
+3. [Development - Setup development environment](#development)
+4. [Contribution - Guide for contributing to the module](#contribution)
 
 ## Overview
 
@@ -15,9 +16,10 @@ It's main purpose is to ease the process of reporting an issue and finding a sol
 ## Usage
 
     class { 'abrt':
-      package_ensure       => 'latest',
-      openGPGCheck         => 'no',
-      autoreportingEnabled => 'yes',
+      package_ensure         => 'latest',
+      open_gpg_check         => 'no',
+      autoreporting_enabled  => 'yes',
+      process_unpackaged     => 'yes',
     }
 
     include abrt::addon::ccpp
@@ -35,7 +37,16 @@ It's main purpose is to ease the process of reporting an issue and finding a sol
       sslclientauth => 'puppet',
     }
 
-## Development
+## Setup development environments
+
+You can run smoke tests:
+
+```sh
+$ vagrant up
+$ vagrant provision
+```
+
+## Contribution
 
 * Fork the project
 * Commit and push until you are happy with your contribution

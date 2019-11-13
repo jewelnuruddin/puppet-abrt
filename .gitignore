@@ -6,3 +6,5 @@ spec/fixtures/*
 .librarian
 pkg/*
 
+## vagrant
+.vagrant/

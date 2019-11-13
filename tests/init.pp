@@ -9,4 +9,16 @@
 # Learn more about module testing here:
 # http://docs.puppetlabs.com/guides/tests_smoke.html
 #
-include ::abrt
+
+# include ::abrt
+
+class { 'abrt':
+  package_ensure         => 'latest',
+  open_gpg_check         => 'no',
+  autoreporting_enabled  => 'yes',
+  process_unpackaged     => 'yes',
+}
+
+include abrt::addon::ccpp
+include abrt::addon::kerneloops
+
