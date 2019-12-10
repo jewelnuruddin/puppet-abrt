@@ -3,7 +3,11 @@
 # Note: you must ensure that whatever directory you specify here exists
 # and is writable for abrtd. abrtd will not create it automatically.
 #
+<% if scope['abrt::watch_crashdump_archive_dir'] != "" -%>
 WatchCrashdumpArchiveDir = <%= scope['abrt::watch_crashdump_archive_dir'] %>
+<% else -%>
+#WatchCrashdumpArchiveDir =
+<% end -%>
 
 # Max size for crash storage [MiB] or 0 for unlimited
 #
@@ -14,7 +18,11 @@ MaxCrashReportsSize = <%= scope['abrt::max_crash_reports_size'] %>
 #
 # Changing dump location could cause problems with SELinux. See man abrt_selinux(8).
 #
+<% if scope['abrt::dump_location'] != "" -%>
 DumpLocation = <%= scope['abrt::dump_location'] %>
+<% else -%>
+#DumpLocation =
+<% end -%>
 
 # If you want to automatically clean the upload directory you have to tweak the
 # selinux policy.
