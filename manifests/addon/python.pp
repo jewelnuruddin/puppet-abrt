@@ -19,7 +19,7 @@ class abrt::addon::python (
 
   if versioncmp($::operatingsystemmajrelease, '8') >= 0 {
     package { 'python3-abrt-addon': ensure => $package_ensure, } ->
-    file { '/etc/abrt/plugins/python.conf':
+    file { '/etc/abrt/plugins/python3.conf':
       ensure  => file,
       content => template("${module_name}/abrt/plugins/python3.conf"),
       owner   => 'root',
