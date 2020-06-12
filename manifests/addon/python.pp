@@ -17,14 +17,24 @@ class abrt::addon::python (
   # http://fedoraproject.org/wiki/QA:Testcase_ABRT_python_addon
   include ::abrt
 
-  package { 'abrt-addon-python': ensure => $package_ensure, } ->
-  file { '/etc/abrt/plugins/python.conf':
-    ensure  => file,
-    content => template("${module_name}/abrt/plugins/python.conf"),
-    owner   => 'root',
-    group   => 'root',
-    mode    => '0644',
+  if versioncmp($::operatingsystemmajrelease, '8') >= 0 {
+    package { 'python3-abrt-addon': ensure => $package_ensure, } ->
+    file { '/etc/abrt/plugins/python.conf':
+      ensure  => file,
+      content => template("${module_name}/abrt/plugins/python3.conf"),
+      owner   => 'root',
+      group   => 'root',
+      mode    => '0644',
+    }
+  } else {
+    package { 'abrt-addon-python': ensure => $package_ensure, } ->
+    file { '/etc/abrt/plugins/python.conf':
+      ensure  => file,
+      content => template("${module_name}/abrt/plugins/python.conf"),
+      owner   => 'root',
+      group   => 'root',
+      mode    => '0644',
+    }
   }
-
   Class['abrt::addon::python'] ~> Service['abrtd']
 }
