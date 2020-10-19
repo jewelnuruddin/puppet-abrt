@@ -21,4 +21,7 @@ class abrt::params {
   $black_list = ['nspluginwrapper', 'valgrind', 'strace', 'mono-core']
   $process_unpackaged = 'no'
   $black_listed_paths = ['/usr/share/doc/*', '*/example*', '/usr/bin/nspluginviewer', '/usr/lib/xulrunner-*/plugin-container']
+
+  # default addons
+  $addons = []
 }
