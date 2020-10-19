@@ -40,6 +40,8 @@
 #
 # $process_unpackaged::              Process crashes in executables which do not belong to any package?
 #
+# $addons::                          Also load these abrt addons.
+#
 class abrt (
   $package_ensure              = $abrt::params::package_ensure,
   $watch_crashdump_archive_dir = $abrt::params::watch_crashdump_archive_dir,
@@ -54,6 +56,7 @@ class abrt (
   $black_list                  = $abrt::params::black_list,
   $process_unpackaged          = $abrt::params::process_unpackaged,
   $black_listed_paths          = $abrt::params::black_listed_paths,
+  $addons                      = $abrt::params::addons,
 ) inherits ::abrt::params {
   # https://fedoraproject.org/wiki/Test_Day:2015-04-14_ABRT
   # test : kill -SIGSEGV (pid)
@@ -64,4 +67,33 @@ class abrt (
   Class['abrt::install'] ->
   Class['abrt::config'] ~>
   Class['abrt::service']
+
+  if ('ccpp' in $addons ) {
+    class{'abrt::addon::ccpp': }
+  }
+
+  if ('java' in $addons ) {
+    class{'abrt::addon::java': }
+  }
+
+  if ('kerneloops' in $addons ) {
+    class{'abrt::addon::kerneloops': }
+  }
+
+  if ('python' in $addons ) {
+    class{'abrt::addon::python': }
+  }
+
+  if ('ruby' in $addons ) {
+    class{'abrt::addon::ruby': }
+  }
+
+  if ('vmcore' in $addons ) {
+    class{'abrt::addon::vmcore': }
+  }
+
+  if ('xorg' in $addons ) {
+    class{'abrt::addon::xorg': }
+  }
+
 }

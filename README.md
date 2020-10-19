@@ -20,13 +20,13 @@ It's main purpose is to ease the process of reporting an issue and finding a sol
       open_gpg_check         => 'no',
       autoreporting_enabled  => 'yes',
       process_unpackaged     => 'yes',
+      addons                 => ['ccpp', 'kerneloops', 'python']
     }
 
-    include abrt::addon::ccpp
-    include abrt::addon::kerneloops
-    include abrt::addon::python
-    include abrt::addon::ruby
+    # abrt addons can also be selected like this
     include abrt::addon::vmcore
+
+    # libreport settings
     include abrt::libreport::mailx
 
     class { 'abrt::libreport::sos': enable => false, }
