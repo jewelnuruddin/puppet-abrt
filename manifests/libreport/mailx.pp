@@ -20,6 +20,7 @@ class abrt::libreport::mailx (
   $emailfrom      = "abrt@${::fqdn}",
   $emailto        = "root@${::fqdn}",
   $sendbinarydata = 'no',
+  $include_backtrace_ccpp = false,
 ) {
   include ::abrt
 

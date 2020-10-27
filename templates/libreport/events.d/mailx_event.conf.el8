@@ -1,3 +1,18 @@
+<% if $include_backtrace_ccpp -%>
+EVENT=notify analyzer=CCpp
+    # CCpp notify event sending e-mail with full gdb backtrace
+    # extract build ids from coredump file and save them in 'build_ids' file
+    abrt-action-analyze-core --core=coredump -o build_ids >>event_log 2>&1 &&
+    # call gdb to generate backtrace with local variables, call arguments
+    # disassembly, etc. and save it in 'backtrace' file
+    abrt-action-generate-backtrace >>event_log 2>&1 &&
+    # generate 'duphash', 'crash_function' and 'backtrace_rating'
+    abrt-action-analyze-backtrace >>event_log 2>&1
+    #
+    # send e-mail
+    reporter-mailx -c /etc/libreport/plugins/mailx.conf
+<% end -%>
+
 EVENT=notify reporter-mailx --notify-only -c /etc/libreport/plugins/mailx.conf
 
 EVENT=notify-dup reporter-mailx --notify-only -c /etc/libreport/plugins/mailx.conf
