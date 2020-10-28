@@ -17,8 +17,10 @@ EVENT=notify-dup analyzer=CCpp
     Mailx_Subject="[abrt][$(cat component)] a repeated crash has been detected" \
     reporter-mailx --notify-only -c /etc/libreport/plugins/mailx.conf
 <% end -%>
-EVENT=notify reporter-mailx --notify-only -c /etc/libreport/plugins/mailx.conf
+EVENT=notify analyzer!=CCpp
+    reporter-mailx --notify-only -c /etc/libreport/plugins/mailx.conf
 
-EVENT=notify-dup reporter-mailx --notify-only -c /etc/libreport/plugins/mailx.conf
+EVENT=notify-dup analyzer!=CCpp
+    reporter-mailx --notify-only -c /etc/libreport/plugins/mailx.conf
 
 EVENT=report_Mailx      reporter-mailx
