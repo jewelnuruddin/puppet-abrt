@@ -1,4 +1,4 @@
-<% if $include_backtrace_ccpp -%>
+<% if @include_backtrace_ccpp -%>
 EVENT=notify analyzer=CCpp
     # CCpp notify event sending e-mail with full gdb backtrace
     # extract build ids from coredump file and save them in 'build_ids' file
@@ -10,9 +10,13 @@ EVENT=notify analyzer=CCpp
     abrt-action-analyze-backtrace >>event_log 2>&1
     #
     # send e-mail
+    Mailx_Subject="[abrt][$(cat component)] a crash has been detected" \
     reporter-mailx -c /etc/libreport/plugins/mailx.conf
-<% end -%>
 
+EVENT=notify-dup analyzer=CCpp
+    Mailx_Subject="[abrt][$(cat component)] a repeated crash has been detected" \
+    reporter-mailx --notify-only -c /etc/libreport/plugins/mailx.conf
+<% end -%>
 EVENT=notify reporter-mailx --notify-only -c /etc/libreport/plugins/mailx.conf
 
 EVENT=notify-dup reporter-mailx --notify-only -c /etc/libreport/plugins/mailx.conf
